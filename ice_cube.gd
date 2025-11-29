@@ -29,10 +29,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	pass
 	
-	
-		
-
-	
 func get_lowest_face() -> String:
 	var local_down = -transform.basis.y
 

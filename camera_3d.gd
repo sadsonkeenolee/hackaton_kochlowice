@@ -21,7 +21,11 @@ func _input(event):
 		yaw -= event.relative.x * mouse_sensitivity
 		pitch += event.relative.y * mouse_sensitivity
 		pitch = clamp(pitch, min_pitch, max_pitch)
-
+		
+	if event.is_action_pressed("ui_cancel"): 
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene_to_file("res://main_menu.tscn")
+		
 func _process(delta):
 	if target == null:
 		return
