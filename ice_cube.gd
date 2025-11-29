@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 
 	# --------- Która ściana jest dolna ---------
 	var floor_face = get_lowest_face()
-	print(floor_face)
 	match floor_face:
 		"up":
 			bottom_raycast = $RayCast_Up
@@ -41,10 +40,10 @@ func _process(delta: float) -> void:
 			bottom_raycast = $RayCast_Left
 		
 	if bottom_raycast == null or not bottom_raycast.is_colliding():
-		print(bottom_raycast)
-		print(not bottom_raycast.is_colliding())
+		$GPUParticles3D.emitting = false
 		return
-	
+	else:
+		$GPUParticles3D.emitting = true
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_charge = 0
@@ -65,7 +64,7 @@ func _process(delta: float) -> void:
 	dir = dir.normalized()
 	
 	if Input.is_action_just_released("jump"):
-		force = jump(min(jump_charge,1), dir)*200
+		force = jump(min(jump_charge,0.5), dir)*150
 		aforce = dir_to_aforce(dir)
 		jump_charge = 0
 		return
