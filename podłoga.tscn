@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://xd2i7r68ktsv"]
+[gd_scene load_steps=5 format=3 uid="uid://xd2i7r68ktsv"]
+
+[ext_resource type="Texture2D" uid="uid://ctnes0iuep0c" path="res://kratka.jpg" id="1_cmjt6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjiy8"]
 size = Vector3(1000, 2, 1000)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmjt6"]
-albedo_color = Color(0.31224272, 0.15845028, 0.07534035, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5dr8"]
+albedo_texture = ExtResource("1_cmjt6")
+uv1_scale = Vector3(50, 50, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_u5dr8"]
-material = SubResource("StandardMaterial3D_cmjt6")
+material = SubResource("StandardMaterial3D_u5dr8")
 size = Vector3(1000, 2, 1000)
 
 [node name="Podłoga" type="StaticBody3D"]
