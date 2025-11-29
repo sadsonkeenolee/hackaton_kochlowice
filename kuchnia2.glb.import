@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkpx7dmf3igh2"
-path="res://.godot/imported/kuchnia1.glb-7c947a46a0ffca75a78ad9ffed31036e.scn"
+uid="uid://besiehgfeswqw"
+path="res://.godot/imported/kuchnia2.glb-e01c1c34a890b1e4aac2a18edd52f391.scn"
 
 [deps]
 
-source_file="res://kuchnia1.glb"
-dest_files=["res://.godot/imported/kuchnia1.glb-7c947a46a0ffca75a78ad9ffed31036e.scn"]
+source_file="res://kuchnia2.glb"
+dest_files=["res://.godot/imported/kuchnia2.glb-e01c1c34a890b1e4aac2a18edd52f391.scn"]
 
 [params]
 
 nodes/root_type="StaticBody3D"
-nodes/root_name="Kitchen"
+nodes/root_name="Kuchnia"
 nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
