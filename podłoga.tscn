@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://xd2i7r68ktsv"]
+[gd_scene load_steps=4 format=3 uid="uid://xd2i7r68ktsv"]
 
-[ext_resource type="PackedScene" uid="uid://ctjffdo6w7qjm" path="res://kostkaproba1.glb" id="1_cmjt6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjiy8"]
+size = Vector3(1000, 2, 1000)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_spmtn"]
-size = Vector3(10, 2, 10)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmjt6"]
+albedo_color = Color(0.31224272, 0.15845028, 0.07534035, 1)
 
-[node name="Podłoga" instance=ExtResource("1_cmjt6")]
+[sub_resource type="BoxMesh" id="BoxMesh_u5dr8"]
+material = SubResource("StandardMaterial3D_cmjt6")
+size = Vector3(1000, 2, 1000)
 
-[node name="Cube" parent="." index="0"]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, 0)
+[node name="Podłoga" type="StaticBody3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-shape = SubResource("BoxShape3D_spmtn")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mjiy8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_u5dr8")

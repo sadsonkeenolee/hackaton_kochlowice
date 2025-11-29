@@ -4,14 +4,18 @@
 [ext_resource type="Script" uid="uid://d3ukxjukvoi3y" path="res://camera_3d.gd" id="2_o457p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k7lle"]
+margin = 0.0
+size = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72td6"]
 albedo_color = Color(0.42352942, 1, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o457p"]
 material = SubResource("StandardMaterial3D_72td6")
+size = Vector3(5, 5, 5)
 
 [node name="IceCube" type="RigidBody3D"]
+mass = 1000.0
 script = ExtResource("1_72td6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -26,19 +30,19 @@ current = true
 script = ExtResource("2_o457p")
 
 [node name="RayCast_Down" type="RayCast3D" parent="."]
-target_position = Vector3(0, -0.5, 0)
+target_position = Vector3(0, -2.5, 0)
 
 [node name="RayCast_Up" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0.5, 0)
+target_position = Vector3(0, 2.5, 0)
 
 [node name="RayCast_Front" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, -0.5)
+target_position = Vector3(0, 0, -2.5)
 
 [node name="RayCast_Back" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, 0.5)
+target_position = Vector3(0, 0, 2.5)
 
 [node name="RayCast_Right" type="RayCast3D" parent="."]
-target_position = Vector3(0.5, 0, 0)
+target_position = Vector3(2.5, 0, 0)
 
 [node name="RayCast_Left" type="RayCast3D" parent="."]
-target_position = Vector3(-0.5, 0, 0)
+target_position = Vector3(-2.5, 0, 0)

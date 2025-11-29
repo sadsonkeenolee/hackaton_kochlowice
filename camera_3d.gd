@@ -1,7 +1,7 @@
 extends Camera3D
 
 @export var target: RigidBody3D  # kostka, czyli rodzic
-@export var distance := 5.0
+@export var distance := 15
 @export var mouse_sensitivity := 0.002
 @export var min_pitch := deg_to_rad(-30)
 @export var max_pitch := deg_to_rad(60)
@@ -23,8 +23,6 @@ func _input(event):
 		pitch = clamp(pitch, min_pitch, max_pitch)
 
 func _process(delta):
-	if target == null:
-		return
 	
 	# Oblicz offset kamery względem target
 	var offset = Vector3(
