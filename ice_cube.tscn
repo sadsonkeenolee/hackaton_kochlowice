@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://5pjdsjxjw7ym"]
+
+[ext_resource type="Script" uid="uid://bbwhdy54b1krt" path="res://ice_cube.gd" id="1_72td6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7lle"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72td6"]
+albedo_color = Color(0.42352942, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o457p"]
+material = SubResource("StandardMaterial3D_72td6")
+
+[node name="IceCube" type="CharacterBody3D"]
+script = ExtResource("1_72td6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_k7lle")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_o457p")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 1, 3)

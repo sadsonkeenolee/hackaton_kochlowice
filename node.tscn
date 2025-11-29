@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://hlhr8je84lhv"]
+
+[ext_resource type="PackedScene" uid="uid://5pjdsjxjw7ym" path="res://ice_cube.tscn" id="1_sy5k4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2q8x"]
+size = Vector3(50, 2, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_112p8"]
+albedo_color = Color(0.44659436, 0.19230083, 0.055236384, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e2u21"]
+material = SubResource("StandardMaterial3D_112p8")
+size = Vector3(50, 2, 50)
+
+[node name="Node" type="Node"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_j2q8x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_e2u21")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 5, 0)
+shadow_enabled = true
+
+[node name="IceCube" parent="." instance=ExtResource("1_sy5k4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
