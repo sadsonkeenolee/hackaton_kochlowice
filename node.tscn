@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://hlhr8je84lhv"]
 
 [ext_resource type="PackedScene" uid="uid://5pjdsjxjw7ym" path="res://ice_cube.tscn" id="1_sy5k4"]
-[ext_resource type="PackedScene" uid="uid://xd2i7r68ktsv" path="res://podłoga.tscn" id="2_j2q8x"]
+[ext_resource type="PackedScene" uid="uid://r8xv860gq31p" path="res://kitchen.tscn" id="2_j2q8x"]
 
 [node name="Node" type="Node"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 5, 0)
-shadow_enabled = true
-
 [node name="IceCube" parent="." instance=ExtResource("1_sy5k4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.77815, 114.66128, 0)
 
-[node name="Podłoga" parent="." instance=ExtResource("2_j2q8x")]
+[node name="Kitchen" parent="." instance=ExtResource("2_j2q8x")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.013107087, 0.9999141, 0, -0.9999141, -0.013107087, 129.39957, 257.76, 0)
+shadow_enabled = true
+spot_range = 4096.0
