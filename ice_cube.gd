@@ -1,35 +1,57 @@
-extends CharacterBody3D
+extends RigidBody3D
 
-@export var FRICTION := 2.0
+var bottom_raycast: RayCast3D = null
+var front_dir = Vector3.ZERO
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+func _ready() -> void:
+	pass 
 
+func _process(delta: float) -> void:
+	var floor = get_lowest_face()
+	match floor:
+		"up":
+			bottom_raycast = $RayCast_Up
+		"down":
+			bottom_raycast = $RayCast_Down
+		"front":
+			bottom_raycast = $RayCast_Front
+		"back":
+			bottom_raycast = $RayCast_Back
+		"right":
+			bottom_raycast = $RayCast_Right
+		"left":
+			bottom_raycast = $RayCast_Left
+	
+	if bottom_raycast == null or not bottom_raycast.is_colliding():
+		pass
+	
+	
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	pass
+	
+	
+		
 
-	# Handle jump.
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	
+func get_lowest_face() -> String:
+	var local_down = -transform.basis.y
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Vector3.ZERO
-	if Input.is_action_pressed("go_forward"):
-		direction -= transform.basis.z
-	if Input.is_action_pressed("go_back"):
-		direction += transform.basis.z
-	if Input.is_action_pressed("go_left"):
-		direction -= transform.basis.x
-	if Input.is_action_pressed("go_right"):
-		direction += transform.basis.x
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
-		velocity.z = move_toward(velocity.z, 0, FRICTION * delta)
+	var directions = {
+		"up": Vector3.UP,
+		"down": Vector3.DOWN,
+		"left": Vector3.LEFT,
+		"right": Vector3.RIGHT,
+		"front": Vector3.FORWARD,
+		"back": Vector3.BACK
+	}
 
-	move_and_slide()
+	var lowest_face = "none"
+	var max_dot = -2.0
+
+	for face in directions.keys():
+		var dot_val = local_down.dot(directions[face])
+		if dot_val > max_dot:
+			max_dot = dot_val
+			lowest_face = face
+
+	return lowest_face
