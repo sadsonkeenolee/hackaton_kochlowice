@@ -118,7 +118,7 @@ func dir_to_aforce(dir):
 	else:
 		return -dir.cross(Vector3.UP).normalized()
 
-@export var melt_speed := 0.1
+@export var melt_speed := 0.000001
 @export var start_distance := 15.0
 var melt_progress := 1.0    # 1 = pełna kostka, 0 = stopiona
 
@@ -141,3 +141,6 @@ func game_over():
 	$GPUParticles3D_End.emitting = true
 	$Cube.visible = false
 	script_enabled = false
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://lose.tscn")
+	

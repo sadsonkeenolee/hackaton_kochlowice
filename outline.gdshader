@@ -95,7 +95,7 @@ void fragment() {
 	float has_outline = 0.0;
 	vec2 pixel_size = vec2(1.0) / VIEWPORT_SIZE;
 	ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV).xyz;
-	//ALBEDO = vec3(get_depth(DEPTH_TEXTURE, SCREEN_UV, INV_PROJECTION_MATRIX));
+	ALBEDO = vec3(get_depth(DEPTH_TEXTURE, SCREEN_UV, INV_PROJECTION_MATRIX));
 	if (edge_value_normal(NORMAL_TEXTURE, SCREEN_UV, pixel_size, sobel_x) + edge_value_normal(NORMAL_TEXTURE, SCREEN_UV, pixel_size, sobel_y) > normal_threshold){
 		ALBEDO = outline_color;
 		has_outline += 1.0;
