@@ -155,7 +155,7 @@ func melt(delta):
 	# zabezpieczenie, żeby nie spadło poniżej 0.1
 	if melt_progress < 0.1:
 		melt_progress = 0.1
-
+	
 	# --- LINEAR SCALING ---
 	cube.scale = Vector3.ONE * melt_progress
 	collision_shape.shape.size = Vector3.ONE * melt_progress * 2.0
