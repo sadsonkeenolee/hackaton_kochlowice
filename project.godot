@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Kochlowice"
-run/main_scene="uid://cekh8wmnt1n5q"
+run/main_scene="uid://hlhr8je84lhv"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[display]
+
+window/size/mode=2
 
 [input]
 
