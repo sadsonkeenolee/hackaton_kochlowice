@@ -10,7 +10,35 @@ var aforce = Vector3.ZERO
 
 var jump_charge
 
+var particles: GPUParticles3D
+var particles_end: GPUParticles3D
+
+var cube: MeshInstance3D
+
+var collision_shape: CollisionShape3D
+
+var camera: Camera3D
+
+var ray_up: RayCast3D
+var ray_down: RayCast3D
+var ray_front: RayCast3D
+var ray_back: RayCast3D
+var ray_right: RayCast3D
+var ray_left: RayCast3D
+
 func _ready() -> void:
+	particles = $GPUParticles3D
+	particles_end = $GPUParticles3D_End
+	cube = $Cube
+	collision_shape = $CollisionShape3D
+	camera = $Camera3D
+	ray_up = $RayCast_Up
+	ray_down = $RayCast_Down
+	ray_front = $RayCast_Front
+	ray_back = $RayCast_Back
+	ray_right = $RayCast_Right
+	ray_left = $RayCast_Left
+	
 	continuous_cd = true
 	gravity_scale = 5.0
 	
@@ -26,7 +54,7 @@ func _process(delta: float) -> void:
 	melt(delta)
 	
 	# kierunek przodu względem kamery
-	front_dir = -$Camera3D.global_transform.basis.z
+	front_dir = -camera.global_transform.basis.z
 	front_dir.y = 0
 	front_dir = front_dir.normalized()
 
@@ -34,23 +62,23 @@ func _process(delta: float) -> void:
 	var floor_face = get_lowest_face()
 	match floor_face:
 		"up":
-			bottom_raycast = $RayCast_Up
+			bottom_raycast = ray_up
 		"down":
-			bottom_raycast = $RayCast_Down
+			bottom_raycast = ray_down
 		"front":
-			bottom_raycast = $RayCast_Front
+			bottom_raycast = ray_front
 		"back":
-			bottom_raycast = $RayCast_Back
+			bottom_raycast = ray_back
 		"right":
-			bottom_raycast = $RayCast_Right
+			bottom_raycast = ray_right
 		"left":
-			bottom_raycast = $RayCast_Left
+			bottom_raycast = ray_left
 		
 	if bottom_raycast == null or not bottom_raycast.is_colliding():
-		$GPUParticles3D.emitting = false
+		particles.emitting = false
 		return
 	else:
-		$GPUParticles3D.emitting = true
+		particles.emitting = true
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_charge = 0
@@ -118,7 +146,7 @@ func dir_to_aforce(dir):
 	else:
 		return -dir.cross(Vector3.UP).normalized()
 
-@export var melt_speed := 0.000001
+@export var melt_speed := 0.008
 @export var start_distance := 15.0
 var melt_progress := 1.0    # 1 = pełna kostka, 0 = stopiona
 
@@ -129,18 +157,27 @@ func melt(delta):
 		melt_progress = 0.1
 
 	# --- LINEAR SCALING ---
-	$Cube.scale = Vector3.ONE * melt_progress
-	$CollisionShape3D.shape.size = Vector3.ONE * melt_progress * 2.0
-	$Camera3D.distance = start_distance * melt_progress
+	cube.scale = Vector3.ONE * melt_progress
+	collision_shape.shape.size = Vector3.ONE * melt_progress * 2.0
+	camera.distance = start_distance * melt_progress
 	print(melt_progress)
 	if melt_progress <= 0.1:
 		game_over()
 		
 func game_over():
-	$GPUParticles3D.emitting = false
-	$GPUParticles3D_End.emitting = true
-	$Cube.visible = false
+	particles.emitting = false
+	particles_end.emitting = true
+	cube.visible = false
 	script_enabled = false
 	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://lose.tscn")
 	
+func win():
+	script_enabled = false
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://end.tscn")
+	
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body == self:
+		win()
