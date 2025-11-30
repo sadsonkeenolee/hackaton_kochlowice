@@ -1,7 +1,7 @@
-[gd_scene load_steps=80 format=3 uid="uid://cjf8jmgl3tno5"]
+[gd_scene load_steps=81 format=3 uid="uid://b13rxipqbh8on"]
 
 [ext_resource type="PackedScene" uid="uid://dccifjvjkdvko" path="res://kuchnia2.glb" id="1_ipk1y"]
-[ext_resource type="Shader" uid="uid://dnrilgglaa0vq" path="res://outline.gdshader" id="2_xsyy8"]
+[ext_resource type="Shader" path="res://outline.gdshader" id="2_xsyy8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdutl"]
 render_priority = 0
@@ -148,6 +148,9 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g68je"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ipk1y"]
+points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_afdka"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
@@ -559,209 +562,213 @@ shape = SubResource("ConcavePolygonShape3D_g68je")
 [node name="Cube_015" parent="." index="90"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D46" type="CollisionShape3D" parent="." index="91"]
+[node name="CollisionShape3D76" type="CollisionShape3D" parent="." index="91"]
 transform = Transform3D(-0.031767275, -0.00021331669, 0.2546227, -0.012789613, 0.005260802, -3.5890256e-11, 0.094925046, 0.00063742, 0.08521111, 1.4621708, 0.3736746, -1.1808841)
+shape = SubResource("ConvexPolygonShape3D_ipk1y")
+
+[node name="CollisionShape3D46" type="CollisionShape3D" parent="." index="92"]
+transform = Transform3D(-0.031767275, -0.00021331669, 0.2546227, -0.012789613, 0.005260802, -3.5890256e-11, 0.094925046, 0.00063742, 0.08521111, 1.4621708, 0.4744551, -1.5163671)
 shape = SubResource("ConcavePolygonShape3D_afdka")
 
-[node name="Cube_020" parent="." index="92"]
+[node name="Cube_020" parent="." index="93"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D47" type="CollisionShape3D" parent="." index="93"]
+[node name="CollisionShape3D47" type="CollisionShape3D" parent="." index="94"]
 transform = Transform3D(-0.20105803, 0, -0.018991806, 0, 0.20156285, 0, 0.014257002, 0, -0.26783013, 1.9018784, 0.15244223, 1.8689483)
 shape = SubResource("ConcavePolygonShape3D_rskxr")
 
-[node name="Cube_021" parent="." index="94"]
+[node name="Cube_021" parent="." index="95"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D48" type="CollisionShape3D" parent="." index="95"]
+[node name="CollisionShape3D48" type="CollisionShape3D" parent="." index="96"]
 transform = Transform3D(0.09984885, 0.00067048334, -0.018991869, -0.0127896145, 0.0052608014, 3.7509382e-10, -0.007080296, -4.754406e-05, -0.2678301, 1.9993703, 0.36429808, 1.8645254)
 shape = SubResource("ConcavePolygonShape3D_kwnde")
 
-[node name="Cube_022" parent="." index="96"]
+[node name="Cube_022" parent="." index="97"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D49" type="CollisionShape3D" parent="." index="97"]
+[node name="CollisionShape3D49" type="CollisionShape3D" parent="." index="98"]
 transform = Transform3D(-0.099635035, -0.00066904764, 0.025837617, -0.0127896145, 0.005260802, 1.2587299e-09, 0.009632438, 6.468164e-05, 0.26725653, 1.7971721, 0.3736746, 1.8684076)
 shape = SubResource("ConcavePolygonShape3D_7clnu")
 
-[node name="Cylinder_013" parent="." index="98"]
+[node name="Cylinder_013" parent="." index="99"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D50" type="CollisionShape3D" parent="." index="99"]
+[node name="CollisionShape3D50" type="CollisionShape3D" parent="." index="100"]
 transform = Transform3D(0.10822821, 0, 0, 0, 0.05974834, 0, 0, 0, 0.10822821, 2.3782501, 0.011320859, 1.9556853)
 shape = SubResource("ConcavePolygonShape3D_mx1r1")
 
-[node name="Cylinder_014" parent="." index="100"]
+[node name="Cylinder_014" parent="." index="101"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D51" type="CollisionShape3D" parent="." index="101"]
+[node name="CollisionShape3D51" type="CollisionShape3D" parent="." index="102"]
 transform = Transform3D(0.10822821, 0, 0, 0, 0.10151037, 0, 0, 0, 0.10822821, 2.2640743, 0.052890286, 1.6414932)
 shape = SubResource("ConcavePolygonShape3D_ll65b")
 
-[node name="Cube_017" parent="." index="102"]
+[node name="Cube_017" parent="." index="103"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D52" type="CollisionShape3D" parent="." index="103"]
+[node name="CollisionShape3D52" type="CollisionShape3D" parent="." index="104"]
 transform = Transform3D(0.072243854, 0, 0, 0, 1, 0, 0, 0, 0.5, 3.3405573, 1.0185654, -1.7665352)
 shape = SubResource("ConcavePolygonShape3D_i55lv")
 
-[node name="Plane_017" parent="." index="104"]
+[node name="Plane_017" parent="." index="105"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D53" type="CollisionShape3D" parent="." index="105"]
+[node name="CollisionShape3D53" type="CollisionShape3D" parent="." index="106"]
 transform = Transform3D(2.1344483, 0, 0, 0, 2.4906209, 0, 0, 0, 2.3632476, 1.252865, 2.3290398, -0.16661836)
 shape = SubResource("ConcavePolygonShape3D_4mu54")
 
-[node name="Plane_018" parent="." index="106"]
+[node name="Plane_018" parent="." index="107"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D54" type="CollisionShape3D" parent="." index="107"]
+[node name="CollisionShape3D54" type="CollisionShape3D" parent="." index="108"]
 transform = Transform3D(0, 0.48198304, 0, -0.58610684, 0, 0, 0, 0, 0.5, -0.85888726, 1.7267704, 0.18602295)
 shape = SubResource("ConcavePolygonShape3D_n1og3")
 
-[node name="Cube_019" parent="." index="108"]
+[node name="Cube_019" parent="." index="109"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D55" type="CollisionShape3D" parent="." index="109"]
+[node name="CollisionShape3D55" type="CollisionShape3D" parent="." index="110"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.013258307, 0, 0, 0, 0.5006878, -0.7110951, 1.2990752, -1.0023193)
 shape = SubResource("ConcavePolygonShape3D_vuk33")
 
-[node name="Cube_023" parent="." index="110"]
+[node name="Cube_023" parent="." index="111"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D56" type="CollisionShape3D" parent="." index="111"]
+[node name="CollisionShape3D56" type="CollisionShape3D" parent="." index="112"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.032708287, 0, 0, 0, 0.019945871, -0.7110951, 1.2540762, -0.53168535)
 shape = SubResource("ConcavePolygonShape3D_a8yav")
 
-[node name="Cube_024" parent="." index="112"]
+[node name="Cube_024" parent="." index="113"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D57" type="CollisionShape3D" parent="." index="113"]
+[node name="CollisionShape3D57" type="CollisionShape3D" parent="." index="114"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.032708287, 0, 0, 0, 0.019945871, -0.7110951, 1.2540762, -1.473009)
 shape = SubResource("ConcavePolygonShape3D_tkq7p")
 
-[node name="Cube_025" parent="." index="114"]
+[node name="Cube_025" parent="." index="115"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D58" type="CollisionShape3D" parent="." index="115"]
+[node name="CollisionShape3D58" type="CollisionShape3D" parent="." index="116"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.013258307, 0, 0, 0, 0.5006878, -0.7110951, 1.6085606, -1.0023193)
 shape = SubResource("ConcavePolygonShape3D_8xoug")
 
-[node name="Cube_026" parent="." index="116"]
+[node name="Cube_026" parent="." index="117"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D59" type="CollisionShape3D" parent="." index="117"]
+[node name="CollisionShape3D59" type="CollisionShape3D" parent="." index="118"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.032708287, 0, 0, 0, 0.019945871, -0.7110951, 1.5635617, -0.53168535)
 shape = SubResource("ConcavePolygonShape3D_vn0v0")
 
-[node name="Cube_027" parent="." index="118"]
+[node name="Cube_027" parent="." index="119"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D60" type="CollisionShape3D" parent="." index="119"]
+[node name="CollisionShape3D60" type="CollisionShape3D" parent="." index="120"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.032708287, 0, 0, 0, 0.019945871, -0.7110951, 1.5635617, -1.473009)
 shape = SubResource("ConcavePolygonShape3D_llba1")
 
-[node name="Cube_028" parent="." index="120"]
+[node name="Cube_028" parent="." index="121"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D61" type="CollisionShape3D" parent="." index="121"]
+[node name="CollisionShape3D61" type="CollisionShape3D" parent="." index="122"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.013258307, 0, 0, 0, 0.5006878, -0.7110951, 1.8858546, -1.0023193)
 shape = SubResource("ConcavePolygonShape3D_unh8w")
 
-[node name="Cube_029" parent="." index="122"]
+[node name="Cube_029" parent="." index="123"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D62" type="CollisionShape3D" parent="." index="123"]
+[node name="CollisionShape3D62" type="CollisionShape3D" parent="." index="124"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.032708287, 0, 0, 0, 0.019945871, -0.7110951, 1.8408557, -0.53168535)
 shape = SubResource("ConcavePolygonShape3D_dnlpx")
 
-[node name="Cube_030" parent="." index="124"]
+[node name="Cube_030" parent="." index="125"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D63" type="CollisionShape3D" parent="." index="125"]
+[node name="CollisionShape3D63" type="CollisionShape3D" parent="." index="126"]
 transform = Transform3D(0.0975753, 0, 0, 0, -0.032708287, 0, 0, 0, 0.019945871, -0.7110951, 1.8408557, -1.473009)
 shape = SubResource("ConcavePolygonShape3D_ildy8")
 
-[node name="Cube_031" parent="." index="126"]
+[node name="Cube_031" parent="." index="127"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D64" type="CollisionShape3D" parent="." index="127"]
+[node name="CollisionShape3D64" type="CollisionShape3D" parent="." index="128"]
 transform = Transform3D(0.3, 0, 0, 0, 0.337396, 0, 0, 0, 0.175, 0.09571071, 1.9675679, 1.9548368)
 shape = SubResource("ConcavePolygonShape3D_f784u")
 
-[node name="Plane_020" parent="." index="128"]
+[node name="Plane_020" parent="." index="129"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D65" type="CollisionShape3D" parent="." index="129"]
+[node name="CollisionShape3D65" type="CollisionShape3D" parent="." index="130"]
 transform = Transform3D(0, 0.23662841, 0, 7.0520763e-09, -2.1016825e-16, -0.23662841, -0.23662841, 0, -7.0520763e-09, 0.35478288, 1.9593893, 1.779618)
 shape = SubResource("ConcavePolygonShape3D_onxvy")
 
-[node name="Cube_032" parent="." index="130"]
+[node name="Cube_032" parent="." index="131"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D66" type="CollisionShape3D" parent="." index="131"]
+[node name="CollisionShape3D66" type="CollisionShape3D" parent="." index="132"]
 transform = Transform3D(0, 0, -0.175, 0, 0.337396, 0, 0.4475142, 0, 0, -0.6365596, 1.9675679, 1.3315561)
 shape = SubResource("ConcavePolygonShape3D_8hig1")
 
-[node name="Plane_021" parent="." index="132"]
+[node name="Plane_021" parent="." index="133"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D67" type="CollisionShape3D" parent="." index="133"]
+[node name="CollisionShape3D67" type="CollisionShape3D" parent="." index="134"]
 transform = Transform3D(0.23662841, 0, 0, 0, 0, -0.23662841, 0, 0.3529819, 0, -0.49010068, 1.9593893, 0.9738481)
 shape = SubResource("ConcavePolygonShape3D_bu8im")
 
-[node name="Cube_005" parent="." index="134"]
+[node name="Cube_005" parent="." index="135"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D68" type="CollisionShape3D" parent="." index="135"]
+[node name="CollisionShape3D68" type="CollisionShape3D" parent="." index="136"]
 transform = Transform3D(0.30302006, 0, 0, 0, 0.337396, 0, 0, 0, 0.175, -0.5085588, 1.9675679, 1.9551737)
 shape = SubResource("ConcavePolygonShape3D_uhyn5")
 
-[node name="Cube_033" parent="." index="136"]
+[node name="Cube_033" parent="." index="137"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D69" type="CollisionShape3D" parent="." index="137"]
+[node name="CollisionShape3D69" type="CollisionShape3D" parent="." index="138"]
 transform = Transform3D(0.3, 0, 0, 0, 0.337396, 0, 0, 0, 0.175, 1.3016474, 1.9675679, 1.9564596)
 shape = SubResource("ConcavePolygonShape3D_4xtde")
 
-[node name="Plane_022" parent="." index="138"]
+[node name="Plane_022" parent="." index="139"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D70" type="CollisionShape3D" parent="." index="139"]
+[node name="CollisionShape3D70" type="CollisionShape3D" parent="." index="140"]
 transform = Transform3D(0, 0.23662841, 0, 7.0520763e-09, -2.1016825e-16, -0.23662841, -0.23662841, 0, -7.0520763e-09, 1.5607195, 1.9593893, 1.7812408)
 shape = SubResource("ConcavePolygonShape3D_2g06s")
 
-[node name="Cube_034" parent="." index="140"]
+[node name="Cube_034" parent="." index="141"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D71" type="CollisionShape3D" parent="." index="141"]
+[node name="CollisionShape3D71" type="CollisionShape3D" parent="." index="142"]
 transform = Transform3D(0.3, 0, 0, 0, 0.337396, 0, 0, 0, 0.175, 0.6960777, 1.9675679, 1.9564596)
 shape = SubResource("ConcavePolygonShape3D_p8l2o")
 
-[node name="Cube_035" parent="." index="142"]
+[node name="Cube_035" parent="." index="143"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D72" type="CollisionShape3D" parent="." index="143"]
+[node name="CollisionShape3D72" type="CollisionShape3D" parent="." index="144"]
 transform = Transform3D(0.3, 0, 0, 0, 0.02795772, 0, 0, 0, 0.24531148, 0.6960777, 1.6013299, 1.9020996)
 shape = SubResource("ConcavePolygonShape3D_ja5fe")
 
-[node name="Plane_023" parent="." index="144"]
+[node name="Plane_023" parent="." index="145"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D73" type="CollisionShape3D" parent="." index="145"]
+[node name="CollisionShape3D73" type="CollisionShape3D" parent="." index="146"]
 transform = Transform3D(0, 0.23662841, 0, 7.0520763e-09, -2.1016825e-16, -0.23662841, -0.23662841, 0, -7.0520763e-09, 0.45657033, 1.9593893, 1.7812408)
 shape = SubResource("ConcavePolygonShape3D_f17xw")
 
-[node name="Cylinder_015" parent="." index="146"]
+[node name="Cylinder_015" parent="." index="147"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D74" type="CollisionShape3D" parent="." index="147"]
+[node name="CollisionShape3D74" type="CollisionShape3D" parent="." index="148"]
 transform = Transform3D(0.106765166, -0.0097909765, 0, 0.017735384, 0.058940656, 0, 0, 0, 0.10822821, 1.7995176, 0.4375822, 1.9792343)
 shape = SubResource("ConcavePolygonShape3D_2tpoo")
 
-[node name="Plane_024" parent="." index="148"]
+[node name="Plane_024" parent="." index="149"]
 material_override = SubResource("StandardMaterial3D_7yojt")
 
-[node name="CollisionShape3D75" type="CollisionShape3D" parent="." index="149"]
+[node name="CollisionShape3D75" type="CollisionShape3D" parent="." index="150"]
 transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, 1.3118807, 0.8343003, 1.8223355)
 shape = SubResource("ConcavePolygonShape3D_ara7p")

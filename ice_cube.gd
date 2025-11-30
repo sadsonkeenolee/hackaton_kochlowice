@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+var script_enabled = true
+
 var bottom_raycast: RayCast3D = null
 var front_dir = Vector3.ZERO
 
@@ -11,13 +13,18 @@ var jump_charge
 func _ready() -> void:
 	continuous_cd = true
 	gravity_scale = 5.0
+	
 
 
 func _process(delta: float) -> void:
+	if script_enabled == false:
+		return
 	force = Vector3.ZERO
 	aforce = Vector3.ZERO
 	var dir = Vector3.ZERO
-
+	
+	melt(delta)
+	
 	# kierunek przodu względem kamery
 	front_dir = -$Camera3D.global_transform.basis.z
 	front_dir.y = 0
@@ -110,3 +117,27 @@ func dir_to_aforce(dir):
 		return Vector3.ZERO
 	else:
 		return -dir.cross(Vector3.UP).normalized()
+
+@export var melt_speed := 0.1
+@export var start_distance := 15.0
+var melt_progress := 1.0    # 1 = pełna kostka, 0 = stopiona
+
+func melt(delta):
+	melt_progress -= melt_speed * delta
+	# zabezpieczenie, żeby nie spadło poniżej 0.1
+	if melt_progress < 0.1:
+		melt_progress = 0.1
+
+	# --- LINEAR SCALING ---
+	$Cube.scale = Vector3.ONE * melt_progress
+	$CollisionShape3D.shape.size = Vector3.ONE * melt_progress * 2.0
+	$Camera3D.distance = start_distance * melt_progress
+	print(melt_progress)
+	if melt_progress <= 0.1:
+		game_over()
+		
+func game_over():
+	$GPUParticles3D.emitting = false
+	$GPUParticles3D_End.emitting = true
+	$Cube.visible = false
+	script_enabled = false
